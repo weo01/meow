@@ -29,7 +29,7 @@
     <div class="input-group">
         <input type="number" id="userNum" placeholder="输入编号" min="1" max="412" onkeydown="handleEnter(event)">
         <br>
-        <button onclick="revealAnswer()">投喂小鱼干，猫猫回答</button>
+        <button onclick="revealAnswer()">投喂小鱼干,猫猫回答</button>
     </div>
 </div>
 
@@ -54,7 +54,14 @@
             revealAnswer(); // 直接调用显示答案的函数
         }
     }
-
+// 页面加载完后，后台自动偷偷加载前 20 张常用的图
+window.onload = function() {
+    for (let i = 1; i <= 20; i++) {
+        const img = new Image();
+        img.src = `assets/${i}.png`; // 替换成你的真实路径和后缀
+    }
+};
+    
     function revealAnswer() {
         const num = document.getElementById('userNum').value;
         if(!num || num < 1 || num > 412) {
@@ -80,14 +87,14 @@
         }
 
         const randomImgId = Math.floor(Math.random() * (maxImg - minImg + 1)) + minImg;
-        const imgPath = 'assets/' + folder + '/' + randomImgId + '.PNG?t=' + new Date().getTime();
+        const imgPath = 'https://cdn.statically.io/gh/weo01/meow/main/assets/' + randomImgId + '.PNG?w=400&quality=60';
         const petImgElement = document.getElementById('result-pet');
         
         petImgElement.src = imgPath;
         document.getElementById('answer-text').innerText = answer;
 
         petImgElement.onerror = function() {
-            this.src = "https://cdn-icons-png.flaticon.com/512/616/616408.PNG";
+            this.src = "https://cdn-icons-png.flaticon.com/512/616/616408.png";
         };
 
         document.getElementById('mask').style.display = 'block';
