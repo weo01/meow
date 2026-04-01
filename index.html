@@ -87,7 +87,7 @@ window.onload = function() {
         }
 
         const randomImgId = Math.floor(Math.random() * (maxImg - minImg + 1)) + minImg;
-        const imgPath = 'assets/' + folder + '/' + randomImgId + '.PNG?t=' + new Date().getTime();
+        const imgPath = 'https://cdn.statically.io/gh/weo01/meow/main/assets/' + randomImgId + '.PNG?w=400&quality=60';
         const petImgElement = document.getElementById('result-pet');
         
         petImgElement.src = imgPath;
