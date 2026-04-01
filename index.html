@@ -29,7 +29,7 @@
     <div class="input-group">
         <input type="number" id="userNum" placeholder="输入编号" min="1" max="412" onkeydown="handleEnter(event)">
         <br>
-        <button onclick="revealAnswer()">投喂小鱼干并举爪</button>
+        <button onclick="revealAnswer()">投喂小鱼干,猫猫回答</button>
     </div>
 </div>
 
@@ -80,7 +80,7 @@
         }
 
         const randomImgId = Math.floor(Math.random() * (maxImg - minImg + 1)) + minImg;
-        const imgPath = 'assets/' + folder + '/' + randomImgId + '.png?t=' + new Date().getTime();
+        const imgPath = 'assets/' + folder + '/' + randomImgId + '.PNG?t=' + new Date().getTime();
         const petImgElement = document.getElementById('result-pet');
         
         petImgElement.src = imgPath;
